@@ -8,6 +8,7 @@ let object =
     c: 30,
     d: 40,
 }
+
 object[Symbol.iterator] = function () {
     this.a = 0
     return {
@@ -30,6 +31,17 @@ object[Symbol.iterator] = function () {
     }
 }
 
-for (let values of object){
+for (let values of object) {
     console.log(values)
+}
+
+let object1 = {
+    name: 'Stanley',
+    Job: 'Web dev',
+    age: 28,
+}
+let arr = Object.entries(object1)
+
+for (let map of arr) {
+   console.log(map)   
 }
