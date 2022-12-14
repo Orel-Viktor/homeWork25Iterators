@@ -35,6 +35,8 @@ for (let values of object) {
     console.log(values)
 }
 
+
+
 let object1 = {
     name: 'Stanley',
     Job: 'Web dev',
@@ -43,5 +45,9 @@ let object1 = {
 let arr = Object.entries(object1)
 
 for (let map of arr) {
-   console.log(map)   
+    map = new Map(arr)
+    let newArr = Object.fromEntries(map)
+    newArr.name = "Viktor"
+    console.log(newArr)
+    
 }
