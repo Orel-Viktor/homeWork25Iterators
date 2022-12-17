@@ -40,15 +40,15 @@ let object = {
 }
 
 object[Symbol.iterator] = function () {
-    let keys = Object.keys(this)
-    this.i = 0
+    let entries = Object.entries(this);
+
     return {
-        current: this.i,
+        current: 0,
         next: function () {
-            if (keys[this.current] !== keys[keys.length]) {
+            if (entries[this.current] !== entries[entries.length]) {
                 return {
                     done: false,
-                    value: keys[this.current++]
+                    value: entries[this.current++]
                 }
             } else {
                 return {
@@ -62,13 +62,15 @@ object[Symbol.iterator] = function () {
 }
 
 
+for (let [key, value] of object) {
+    const p = document.createElement('p');
+    const b = document.createElement('strong');
+    const s = document.createElement('span');
 
-console.log(object[Symbol.iterator]().next())
-console.log(object[Symbol.iterator]().next())
-console.log(object[Symbol.iterator]().next())
-console.log(object[Symbol.iterator]().next())
+    b.innerText = key.toUpperCase() + ': ';
+    s.innerText = value;
 
-
-// for (let keys of object) {
-//     console.log(keys)
-// }
+    p.appendChild(b);
+    p.appendChild(s);
+    document.body.appendChild(p)
+}
