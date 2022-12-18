@@ -41,7 +41,7 @@ object[Symbol.iterator] = function () {
   return {
     current: 0,
     next: function () {
-      if (entries[this.current] !== undefined) {
+      if (entries[this.current]) {
         return {
           done: false,
           value: entries[this.current++],
